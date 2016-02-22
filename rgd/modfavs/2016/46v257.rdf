@@ -1,0 +1,843 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rgd="https://www.reddit.com/r/redditgetsdrawn/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/45llpp">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/zCFPypM"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/rdhorak">
+        <foaf:name>rdhorak</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="http://40.media.tumblr.com/8f43b7ba86de714e176462c4ac3c9d5c/tumblr_o2ig51B8Er1rnikf9o1_1280.jpg">
+        <rgd:image>
+          <foaf:Image rdf:about="http://40.media.tumblr.com/8f43b7ba86de714e176462c4ac3c9d5c/tumblr_o2ig51B8Er1rnikf9o1_1280.jpg"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Glynrick">
+            <foaf:name>Glynrick</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/sgt_mary_mary">
+            <foaf:name>sgt_mary_mary</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/465f53">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/sm8F8iN"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/Em3PO">
+        <foaf:name>Em3PO</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/iDc3k88">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/iDc3k88"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/TheFaceMaker">
+            <foaf:name>TheFaceMaker</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/sgt_mary_mary">
+            <foaf:name>sgt_mary_mary</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46kbog">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/gmnB5qP"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/mrlane90">
+        <foaf:name>mrlane90</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/PEy86il">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/PEy86il"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/thefutureeye">
+            <foaf:name>thefutureeye</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/sgt_mary_mary">
+            <foaf:name>sgt_mary_mary</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/462020">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/3INMCBx"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/sewer_gal">
+        <foaf:name>sewer_gal</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/8BaIucC">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/8BaIucC"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Hika-Tamari">
+            <foaf:name>Hika-Tamari</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/sgt_mary_mary">
+            <foaf:name>sgt_mary_mary</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46f7i8">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/vLyGhXW"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/Ghaji">
+        <foaf:name>Ghaji</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/k0odsg4">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/k0odsg4"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/chikoritu">
+            <foaf:name>chikoritu</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/sgt_mary_mary">
+            <foaf:name>sgt_mary_mary</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46gry7">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/96P40wM"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/strawberryfriend">
+        <foaf:name>strawberryfriend</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/0rVJq09">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/0rVJq09"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/leahfelicity">
+            <foaf:name>leahfelicity</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/fivepmsomewhere">
+            <foaf:name>fivepmsomewhere</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46fs6q">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/JupgE7z"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/jackhackery">
+        <foaf:name>jackhackery</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/W7re4DN">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/W7re4DN"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/baimo">
+            <foaf:name>baimo</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/fivepmsomewhere">
+            <foaf:name>fivepmsomewhere</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46blw7">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/MJf8BjH"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/danielface">
+        <foaf:name>danielface</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/sFNSRSZ">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/sFNSRSZ"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/FoxtrotOscar23">
+            <foaf:name>FoxtrotOscar23</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/fivepmsomewhere">
+            <foaf:name>fivepmsomewhere</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/45ym6x">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/vn3QloN"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/mikedudical">
+        <foaf:name>mikedudical</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/5aTGdO0">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/5aTGdO0"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Smiley_Dafe">
+            <foaf:name>Smiley_Dafe</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/fivepmsomewhere">
+            <foaf:name>fivepmsomewhere</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46b6cc">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/hlGW3xT"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/itssydneyy">
+        <foaf:name>itssydneyy</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/RSaZCEc">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/RSaZCEc"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/BatmansBFF">
+            <foaf:name>BatmansBFF</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/fivepmsomewhere">
+            <foaf:name>fivepmsomewhere</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/45vuz6">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/aNDuBGk"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/CuppertonianJohnson">
+        <foaf:name>CuppertonianJohnson</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/I9y11K0">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/I9y11K0"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/jiskadraws">
+            <foaf:name>jiskadraws</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/waffleandbear">
+            <foaf:name>waffleandbear</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/45xnx2">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/LititnH"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/BigHeroDicks">
+        <foaf:name>BigHeroDicks</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://heyheydesigns.files.wordpress.com/2016/02/rgddeergirl.jpg?w=764">
+        <rgd:image>
+          <foaf:Image rdf:about="https://heyheydesigns.files.wordpress.com/2016/02/rgddeergirl.jpg?w=764"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/ColorMe_Pkeen">
+            <foaf:name>ColorMe_Pkeen</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/waffleandbear">
+            <foaf:name>waffleandbear</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/469m65">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/7Edde5Q"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/AddMinus">
+        <foaf:name>AddMinus</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/pW9zOUA">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/pW9zOUA"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/drw_in_an">
+            <foaf:name>drw_in_an</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/waffleandbear">
+            <foaf:name>waffleandbear</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/465u54">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/t5IUpDw"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/itsandychecks">
+        <foaf:name>itsandychecks</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/3Z4boY2">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/3Z4boY2"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/lilycee">
+            <foaf:name>lilycee</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/waffleandbear">
+            <foaf:name>waffleandbear</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/460ool">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/a7vDDK1"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/mjmacabre">
+        <foaf:name>mjmacabre</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/VcJkPZB">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/VcJkPZB"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/feli55">
+            <foaf:name>feli55</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/waffleandbear">
+            <foaf:name>waffleandbear</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46kbog">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/gmnB5qP"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/mrlane90">
+        <foaf:name>mrlane90</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/eZCzwdA">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/eZCzwdA"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/oekaki">
+            <foaf:name>oekaki</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/westopher718">
+            <foaf:name>westopher718</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/460zmb">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/CE46NnF"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/RiotsarealltheRage">
+        <foaf:name>RiotsarealltheRage</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/DSpy5kf">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/DSpy5kf"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/decoLoc">
+            <foaf:name>decoLoc</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/westopher718">
+            <foaf:name>westopher718</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/45wjii">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/Naqh6Gg"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/Frankles680">
+        <foaf:name>Frankles680</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/FIjcLoH">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/FIjcLoH"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Lost_Toast">
+            <foaf:name>Lost_Toast</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/westopher718">
+            <foaf:name>westopher718</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/462020">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/3INMCBx"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/sewer_gal">
+        <foaf:name>sewer_gal</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/kFemDan">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/kFemDan"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Arushamohamed">
+            <foaf:name>Arushamohamed</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/westopher718">
+            <foaf:name>westopher718</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/464isf">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/oRUefJu"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/senteryourself">
+        <foaf:name>senteryourself</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/smfEAMj">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/smfEAMj"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/AstencilForYou">
+            <foaf:name>AstencilForYou</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/westopher718">
+            <foaf:name>westopher718</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46egv4">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/xkUlNDH"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/xxabie">
+        <foaf:name>xxabie</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/aoZOePd">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/aoZOePd"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/irds">
+            <foaf:name>irds</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Pydkou">
+            <foaf:name>Pydkou</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/4649jm">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/buMLznA"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/impropernoun">
+        <foaf:name>impropernoun</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/dIic38D">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/dIic38D"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Spudmaster4000">
+            <foaf:name>Spudmaster4000</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Pydkou">
+            <foaf:name>Pydkou</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/462020">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/3INMCBx"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/sewer_gal">
+        <foaf:name>sewer_gal</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/5YrgG2Y">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/5YrgG2Y"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/lackblack">
+            <foaf:name>lackblack</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Pydkou">
+            <foaf:name>Pydkou</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/45ym6x">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/vn3QloN"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/mikedudical">
+        <foaf:name>mikedudical</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/brtJwed">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/brtJwed"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/TinWizard">
+            <foaf:name>TinWizard</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Pydkou">
+            <foaf:name>Pydkou</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/45ylw8">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/LQizXGy"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/shirissun">
+        <foaf:name>shirissun</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/r0cOU0E">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/r0cOU0E"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/monster_puppy">
+            <foaf:name>monster_puppy</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/Pydkou">
+            <foaf:name>Pydkou</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46blw7">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/MJf8BjH"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/danielface">
+        <foaf:name>danielface</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/lL3a3DR">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/lL3a3DR"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/ObeyMyBrain">
+            <foaf:name>ObeyMyBrain</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/ItWillBeMine">
+            <foaf:name>ItWillBeMine</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46fsgd">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/UiZKAY3"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/chapthecollector">
+        <foaf:name>chapthecollector</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/6U8euSS">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/6U8euSS"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/waffleandbear">
+            <foaf:name>waffleandbear</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/ItWillBeMine">
+            <foaf:name>ItWillBeMine</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/46q7i7">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/Yc7NqZh"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/almestra">
+        <foaf:name>almestra</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/Mu0mdoM">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/Mu0mdoM"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/mikdim">
+            <foaf:name>mikdim</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/ItWillBeMine">
+            <foaf:name>ItWillBeMine</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/45ylw8">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/LQizXGy"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/shirissun">
+        <foaf:name>shirissun</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/1pOGLf7">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/1pOGLf7"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/yokofakun">
+            <foaf:name>yokofakun</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/ItWillBeMine">
+            <foaf:name>ItWillBeMine</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+  <rgd:Submission rdf:about="https://www.reddit.com/r/redditgetsdrawn/comments/45wjii">
+    <rgd:image>
+      <foaf:Image rdf:about="https://imgur.com/Naqh6Gg"/>
+    </rgd:image>
+    <dc:date>2016-02-21T12:21:40+00:00</dc:date>
+    <dc:author>
+      <foaf:Person rdf:about="https://www.reddit.com/user/Frankles680">
+        <foaf:name>Frankles680</foaf:name>
+      </foaf:Person>
+    </dc:author>
+    <rgd:drawn>
+      <rgd:Drawing rdf:about="https://imgur.com/GViFmNU">
+        <rgd:image>
+          <foaf:Image rdf:about="https://imgur.com/GViFmNU"/>
+        </rgd:image>
+        <dc:author>
+          <foaf:Person rdf:about="https://www.reddit.com/user/fatcatkittycat">
+            <foaf:name>fatcatkittycat</foaf:name>
+          </foaf:Person>
+        </dc:author>
+        <rgd:faved_by>
+          <foaf:Person rdf:about="https://www.reddit.com/user/ItWillBeMine">
+            <foaf:name>ItWillBeMine</foaf:name>
+          </foaf:Person>
+        </rgd:faved_by>
+      </rgd:Drawing>
+    </rgd:drawn>
+  </rgd:Submission>
+</rdf:RDF>
