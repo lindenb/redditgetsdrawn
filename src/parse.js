@@ -109,6 +109,16 @@ while( selection_from != -1)
 }
 
 stdout.println(JSON.stringify(submissions));
+
+var SHORTURL="link rel=\"shorturl\" href=\"https://redd.it/"
+var shorturl_b = html.indexOf(SHORTURL);
+if( shorturl_b!=-1) {
+  shorturl_b  += SHORTURL.length;
+  var shorturl_e = html.indexOf("\"",shorturl_b);
+  stderr.println("PAGE ID: "+ html.substring(shorturl_b,shorturl_e));
+  
+}
+
 } catch(error) {
 error.printStackTrace();
 java.lang.System.exit(-1);
