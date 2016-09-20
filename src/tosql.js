@@ -5,28 +5,106 @@ function verify(test,msg)
 	if(!test) throw msg;
 	}
 
-function insertAuthor(name)
+function insertAuthor(data)
 	{
+	verify( "author" in data, "missing data in node2 ");
+	var name  = data.author;
+	if(name == "AutoModerator") return  null;
+	
 	print("INSERT INTO USER(NAME) VALUES('"+name+"');");
+	return name;
 	}
 
 
- {
-                                            "height": 216,
-                                            "url": "https://i.redditmedia.com/dMz4GS_iVZ7JMOmxCnR1e5THBge0d3azp5nD7ZxXvyM.jpg?fit=crop&amp;crop=faces%2Centropy&amp;arh=2&amp;w=216&amp;s=8cce593ab54378bba73adff6cc88b0cf",
-                                            "width": 216
-                                        }
 function insertImage(node)
 	{
 	print("INSERT INTO IMAGE(width,height,url) VALUES("+node.width+","+node.height+"'"+name+"');");
 	}
 
+
+function redditObject(node,depth)
+	{
+	verify( "kind" in node, "missing kind in node1");
+	var kind = node["kind"];
+	verify( "data" in node, "missing data in node");
+	var data = node["data"];
+	if( kind == "Listing")
+		{
+		verify( "children" in data, "missing children in data");
+		var children = data["children"];
+		verify(Array.isArray(children),"children is array");
+		for(var idx1 in children)
+			{
+			var child = children[idx1];
+			verify( typeof child === 'object',"child is object");
+			redditObject(child,depth+1);
+			}
+		
+		}
+	else if( kind == "t3")
+		{
+		var name = insertAuthor(data);
+		var created= data.created;
+		var title= data.title;
+		var over_18 = data.over_18;
+		var url = data.url;
+		var thumbnail = data.thumbnail;
+		print("insert into submission title="+title+",author="+name+",created="+
+			created+",nsw="+over_18+",url="+url+",thumbnail="+thumbnail);
+			
+		if("preview" in data) {
+
+			if("images" in data.preview) {
+			for(var i=0;i< data.preview.images.length;++i)
+				{
+
+				var o2 = data.preview.images[i];
+				if(!("source" in o2)) continue;
+				o2 = o2.source;
+				print("insert into image width="+o2.width+",height="+o2.height+",src="+o2.url);
+				}
+			}
+			}	
+			
+		}
+	else if( kind == "t1")
+		{
+		var name=insertAuthor(data);
+		var created= data.created;
+		var url = data.body;
+		print("insert into art author="+name+",created="+
+			created+",nsw="+over_18+",url="+url);
+		
+		}
+	else
+		{
+		throw "undefined type "+kind;
+		}
+	}
+
+
+
+function redditArray(root,depth)
+	{
+	verify(Array.isArray(root),"root is array");
+	verify(root.length>0,"root.length>0");
+	for(var idx1 in root)
+		{
+		var node1 = root[idx1];
+		verify( typeof node1 === 'object',"node1 is object");
+		redditObject(node1,depth+1);
+		}
+	}
+	
+redditArray(root,0);
+/*
 verify(Array.isArray(root),"root is array");
 verify(root.length>0,"root.length>0");
 for(var idx1 in root)
 	{
 	node1 = root[idx1];
 	verify( typeof node1 === 'object',"node1 is object");
+	redditObject(node1);
 	verify( "data" in node1, "missing data in node1");
 	verify( "children" in node1.data, "missing data.children in node1");
 	verify(Array.isArray(node1.data.children),"node1.data.children is array");
@@ -41,5 +119,5 @@ for(var idx1 in root)
 		insertAuthor(node2.author);
 		}
 	
-	}
+	}*/
 
