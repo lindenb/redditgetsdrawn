@@ -1,9 +1,29 @@
+var ImageIO = Java.type("javax.imageio.ImageIO");
+var URL = Java.type("java.net.URL");
+
 var root = load(arguments[0]);
 
 function verify(test,msg)
 	{
 	if(!test) throw msg;
 	}
+
+function getImageInfo(url) {
+	var img  = { "url": url, "width":-1,"height":-1};
+	var is = ImageIO.createImageInputStream(new URL(u).openStream());
+
+	var iter = ImageIO.getImageReaders(is);
+	if (iter.hasNext()) {
+        var reader = iter.next();
+            reader.setInput(is);
+            img.width = reader.getWidth(0);
+            img.height = reader.getHeight(0);
+            } 
+	is.close();
+	return img;	
+	}
+
+
 
 function insertAuthor(data)
 	{
@@ -72,6 +92,19 @@ function redditObject(node,depth)
 		var name=insertAuthor(data);
 		var created= data.created;
 		var url = data.body;
+		
+		var tokens = data.body.split(/[^\:a-zA-Z\/\.0-9]+/);
+
+		for(var tok in tokens)
+			{
+			var u = tokens[tok];
+
+			if(( u.startsWith("http://") || u.startsWith("https://")) && u.contains("imgur.com/") )	
+				{
+				print(">> "+ u );
+				}
+			}
+                
 		print("insert into art author="+name+",created="+
 			created+",nsw="+over_18+",url="+url);
 		
