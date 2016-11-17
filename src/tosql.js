@@ -1,8 +1,10 @@
 var ImageIO = Java.type("javax.imageio.ImageIO");
 var URL = Java.type("java.net.URL");
+load("parser.js");
 
 var root = load(arguments[0]);
 
+/*
 function verify(test,msg)
 	{
 	if(!test) throw msg;
@@ -130,6 +132,7 @@ function redditArray(root,depth)
 	}
 	
 redditArray(root,0);
+*/
 /*
 verify(Array.isArray(root),"root is array");
 verify(root.length>0,"root.length>0");
@@ -153,4 +156,8 @@ for(var idx1 in root)
 		}
 	
 	}*/
+var post = new Post(root);
+//print(post.getSubmission());
+//print(post.getArts());
+post.getFavorites();
 
