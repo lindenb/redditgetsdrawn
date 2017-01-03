@@ -2,3 +2,6 @@ jeter*
 *~
 *.tmp
 cache
+bin/com
+lib
+/bin/
