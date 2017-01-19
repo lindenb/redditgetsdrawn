@@ -1,8 +1,10 @@
 package com.github.lindenb.rgd;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,6 +18,9 @@ public class RgdToHtml {
 	private List<Submission> submissions=new ArrayList<>();
 	private Map<User, Integer> user2count=new HashMap<>();
 	private boolean useBase64=false;
+	private Date minDate=null;
+	private Date maxDate=null;
+	private boolean pack=false;
 	
 	private void write(XMLStreamWriter out,ImageInfo img)throws Exception {
 		out.writeEmptyElement("img");
@@ -39,7 +44,7 @@ public class RgdToHtml {
 	}
 	
 	private void run(final String[] args) throws Exception {
-		
+			final SimpleDateFormat sm = new SimpleDateFormat("yyyy-dd-mm");
 			int optind=0;
 			while(optind<args.length)
 				{
@@ -47,11 +52,26 @@ public class RgdToHtml {
 					{
 					System.err.println("Options: ");
 					System.err.println(" -b     use base 64 for images.");
+					System.err.println(" -p     pack vertical");
+					System.err.println(" -m <s> min date");
+					System.err.println(" -M <s> max date");
 					return;
+					}
+				else if(args[optind].equals("-m") && optind+1 < args.length)
+					{
+					this.minDate = sm.parse( args[++optind]);
+					}
+				else if(args[optind].equals("-M") && optind+1 < args.length)
+					{
+					this.maxDate = sm.parse( args[++optind]);
 					}
 				else if(args[optind].equals("-b"))
 					{
 					this.useBase64=true;
+					}
+				else if(args[optind].equals("-p"))
+					{
+					this.pack=true;
 					}
 				else if(args[optind].equals("--"))
 					{
@@ -74,12 +94,25 @@ public class RgdToHtml {
 		while(optind< args.length) {
 			final String s =args[optind++];
 			final Submission sub = Submission.parse(s);
+			
+			if(this.minDate!=null && (sub.getDate()==null || sub.getDate().before(this.minDate))) 
+				{
+				LOG.info("ignoring submission before "+this.minDate+" (was "+sub.getDate()+")");
+				continue;
+				}
+			if(this.maxDate!=null && (sub.getDate()==null || sub.getDate().after(this.maxDate))) 
+				{
+				LOG.info("ignoring submission after "+this.maxDate+" (was "+sub.getDate()+")");
+				continue;
+				}
+			
+			
 			if(!sub.getImageInfo().toBigSquareImageInfo().isValid()) continue;
 			if(sub.getUser().getName().equals("AutoModerator")) continue;
 			if(sub.getUser().getName().equals("[deleted]")) continue;
 			List<Art> arts = new ArrayList<>(sub.getArts());
 			int i=0;
-			LOG.info("scanning arts");
+			LOG.info("scanning art N="+arts.size()+" sub="+this.submissions.size());
 			while(i<arts.size()) {
 				final Art art = arts.get(i);
 				User u = art.getUser();
@@ -95,7 +128,8 @@ public class RgdToHtml {
 					}
 				}
 			if(arts.isEmpty()) continue;
-
+			
+			
 			for(final Art art: arts) 
 				{
 				User u = art.getUser();
@@ -105,7 +139,8 @@ public class RgdToHtml {
 				}
 			this.submissions.add(sub);
 			}
-		LOG.info("sort submissions");
+		
+		LOG.info("sort submissions N="+this.submissions.size());
 		Collections.sort(this.submissions,new Comparator<Submission>() {
 			@Override
 			public int compare(Submission o1, Submission o2) {
@@ -128,9 +163,31 @@ public class RgdToHtml {
 		w.writeStartElement("body");
 		w.writeStartElement("table");
 		
+		w.writeStartElement("thead");
+		
+		w.writeStartElement("caption");
+		w.writeCharacters("RedditGetsDrawn");
+		if(this.minDate!=null && this.maxDate!=null) {
+			w.writeEmptyElement("br");
+			w.writeCharacters("Between " + sm.format(this.minDate)+" and "+sm.format(this.maxDate));
+			}
+		else if(this.minDate!=null)
+			{
+			w.writeEmptyElement("br");
+			w.writeCharacters("Between " + sm.format(this.minDate)+" and "+sm.format(new Date()));
+			}
+		else if(this.maxDate!=null)
+			{
+			w.writeEmptyElement("br");
+			w.writeCharacters("Before " + sm.format(this.maxDate));
+			}
+		
 		w.writeStartElement("tr");
-		w.writeStartElement("th");
-		w.writeEndElement();
+		
+		if(!this.pack) {
+			w.writeStartElement("th");
+			w.writeEndElement();
+			}
 		
 		for(final Submission sub: this.submissions)
 			{
@@ -146,45 +203,88 @@ public class RgdToHtml {
 			w.writeEndElement();
 			}
 		w.writeEndElement();//tr
+		w.writeEndElement();//thread
 		
+		w.writeStartElement("tbody");
 		
-		for(User user:users) 
+		if(this.pack)
 			{
-			w.writeStartElement("tr");
-			w.writeStartElement("th");
-			w.writeStartElement("a");
-			w.writeCharacters(user.getName());
-			w.writeEndElement();
-			w.writeEndElement();//th
-			
-			for(final Submission sub: this.submissions)
+			int y=0;
+			for(;;)
 				{
-				Art a=null;
-				for(final Art art:sub.getArts()) {
-					if(!art.getUser().equals(user)) continue;
-					a=art;
-					break;
-					}
-				if(a==null) {
-					w.writeStartElement("td");
-					w.writeEndElement();
-				} else
+				List<Art> row=new ArrayList<>();
+				boolean foundOne=false;
+				for(final Submission sub: this.submissions)
 					{
-					w.writeStartElement("td");
-					w.writeStartElement("a");
-					w.writeAttribute("href",""+ a.getImagePage());
-					write(w,a.getImageInfo().toBigSquareImageInfo());
-					w.writeEndElement();
-					w.writeEndElement();
+					List<Art> arts=sub.getArts();
+					if(y>=arts.size())
+						{
+						row.add(null);
+						}
+					else
+						{
+						row.add(arts.get(y));
+						foundOne=true;
+						}
 					}
+				if(!foundOne) break;
+				w.writeStartElement("tr");
+				for(int x=0;x<row.size();++x)
+					{
+					w.writeStartElement("td");					
+					if(row.get(x)!=null) {
+						w.writeStartElement("a");
+						w.writeAttribute("title", row.get(x).getImagePage());
+						w.writeAttribute("href",""+ row.get(x).getImagePage());
+						write(w,row.get(x).getImageInfo().toBigSquareImageInfo());
+						w.writeEndElement();
+						}
+					w.writeEndElement();//td
+					}
+				
+				w.writeEndElement();
+				++y;
 				}
-			w.writeEndElement();//tr
 			}
+		else 
+			{
+			for(final User user:users) 
+				{
+				w.writeStartElement("tr");
+				w.writeStartElement("th");
+				w.writeStartElement("a");
+				w.writeCharacters(user.getName());
+				w.writeEndElement();
+				w.writeEndElement();//th
+				for(final Submission sub: this.submissions)
+					{
+					Art a=null;
+					for(final Art art:sub.getArts()) {
+						if(!art.getUser().equals(user)) continue;
+						a=art;
+						break;
+						}
+					if(a==null) {
+						w.writeStartElement("td");
+						w.writeEndElement();
+					} else
+						{
+						w.writeStartElement("td");
+						w.writeStartElement("a");
+						w.writeAttribute("href",""+ a.getImagePage());
+						write(w,a.getImageInfo().toBigSquareImageInfo());
+						w.writeEndElement();
+						w.writeEndElement();
+						}
+					}
+				w.writeEndElement();//tr
+				}
+			}
+		w.writeEndElement();//tbody
 		
-		
-		w.writeEndElement();
-		w.writeEndElement();
-		w.writeEndElement();
+		w.writeEndElement();//table
+		w.writeEndElement();//body
+		w.writeEndElement();//html
 		w.flush();
 		System.out.flush();
 		}

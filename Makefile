@@ -15,12 +15,12 @@ all_maven_jars = $(sort ${gson.jar})
 %.sql : %.json
 	jjs src/tosql.js -- $< > $@
 
-all: dist/xx.jar $(addprefix cache/,$(addsuffix .json,${POSTS}))
+all: dist/rgd2html.jar $(addprefix cache/,$(addsuffix .json,${POSTS}))
 
 all_json: $(addprefix cache/,$(addsuffix .json,${POSTS}))
 
 
-dist/xx.jar : ${all_maven_jars} ./src/main/java/com/github/lindenb/rgd/RgdToHtml.java
+dist/rgd2html.jar : ${all_maven_jars} ./src/main/java/com/github/lindenb/rgd/RgdToHtml.java
 	mkdir -p $(dir $@)  tmp
 	javac -d tmp -cp lib/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar -sourcepath src/main/java $(filter %.java,$^)
 	jar cvf $@ -C tmp .
