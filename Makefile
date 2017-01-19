@@ -1,7 +1,7 @@
 .PHONY=all all_json
 SHELL=/bin/bash
 SLEEP?=2
-POSTS=$(shell sort data/posts.txt | sort | uniq)
+POSTS=$(shell sort data/posts.txt | sort | uniq | tac)
 lib.dir?=lib
 gson.jar = \
 	$(lib.dir)/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar
@@ -15,7 +15,7 @@ all_maven_jars = $(sort ${gson.jar})
 %.sql : %.json
 	jjs src/tosql.js -- $< > $@
 
-all: dist/xx.jar $(addprefix cache/,$(addsuffix .sql,${POSTS}))
+all: dist/xx.jar $(addprefix cache/,$(addsuffix .json,${POSTS}))
 
 all_json: $(addprefix cache/,$(addsuffix .json,${POSTS}))
 

@@ -84,7 +84,7 @@ public class Submission  extends AbstractImage
 	
 	
 	@Override
-	protected String getImgurUrl() {
+	protected String getImageUrl() {
 		if(this.cacheimgur!=null) return this.cacheimgur.isEmpty()?null:this.cacheimgur;
 		this.cacheimgur="";
 		JsonElement o = this.root;
@@ -105,32 +105,34 @@ public class Submission  extends AbstractImage
 		
 		if(o==null || !o.isJsonPrimitive() || !o.getAsJsonPrimitive().isString()) return null;
 		String body= o.getAsJsonPrimitive().getAsString();
-		this.cacheimgur = AbstractImage.fixImgurUrl(body);
+		this.cacheimgur = new ImageInfoFactory().fixImageUrl(body);
 		if(this.cacheimgur==null) this.cacheimgur="";
 		return this.cacheimgur.isEmpty()?null:this.cacheimgur;
 		}
 	
+	private List<Art> _arts = null;
 	
 	public List<Art> getArts() {
-		final List<Art> L= new ArrayList<Art>();
+		if(_arts!=null) return _arts;
+		this._arts = new ArrayList<Art>();
 		JsonElement o = this.root;
 
-		if(o==null || !o.isJsonArray() ||  o.getAsJsonArray().size() <= 1 ) return L;
+		if(o==null || !o.isJsonArray() ||  o.getAsJsonArray().size() <= 1 ) return this._arts;
 		o = o.getAsJsonArray().get(1);
 
-		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("data")) return L;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("data")) return this._arts;
 		o = o.getAsJsonObject().get("data");
 
-		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("children")) return L;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("children")) return this._arts;
 		o = o.getAsJsonObject().get("children");
 
-		if(o==null || !o.isJsonArray()) return L;
+		if(o==null || !o.isJsonArray()) return this._arts;
 		final JsonArray array = o.getAsJsonArray();
 		for(int i=0;i< array.size();++i)  {
 			final Art a=new Art(array.get(i));
-			L.add(a);
+			this._arts.add(a);
 			}
-		return L;
+		return this._arts;
 		}
 	
 	public static Submission parse(final String  file) throws IOException {

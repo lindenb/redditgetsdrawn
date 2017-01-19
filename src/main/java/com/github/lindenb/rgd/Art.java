@@ -33,7 +33,7 @@ public class Art extends AbstractImage
 		}
 	
 	@Override
-	protected String getImgurUrl() {
+	protected String getImageUrl() {
 		if(this.cacheimgur!=null) return this.cacheimgur.isEmpty()?null:this.cacheimgur;
 		this.cacheimgur="";
 		JsonElement o = this.root;
@@ -54,7 +54,7 @@ public class Art extends AbstractImage
 		}
 		String body= o.getAsJsonPrimitive().getAsString();
 		
-		this.cacheimgur = AbstractImage.fixImgurUrl(body);
+		this.cacheimgur = new ImageInfoFactory().fixImageUrl(body);
 		if( this.cacheimgur==null) this.cacheimgur="";
 		return this.cacheimgur.isEmpty()?null:this.cacheimgur;
 		}
