@@ -15,17 +15,64 @@ public class RgdToHtml {
 	private static final Logger LOG=Logger.getLogger("RgdToHtml");
 	private List<Submission> submissions=new ArrayList<>();
 	private Map<User, Integer> user2count=new HashMap<>();
+	private boolean useBase64=false;
 	
 	private void write(XMLStreamWriter out,ImageInfo img)throws Exception {
 		out.writeEmptyElement("img");
-		out.writeAttribute("src", img.getUrl());
+		String url= img.getUrl();
+		if(this.useBase64)
+			{
+			try {
+				url=img.toBase64();
+				
+				} 
+			catch(Exception err)
+				{
+				url=img.getUrl();
+				}
+			}
+
+		out.writeAttribute("src", url);
 		out.writeAttribute("width", ""+img.getWidth());
 		out.writeAttribute("height",""+img.getHeight());
 
 	}
 	
-	private void run(String[] args) throws Exception {
-		for(final String s : args) {
+	private void run(final String[] args) throws Exception {
+		
+			int optind=0;
+			while(optind<args.length)
+				{
+				if(args[optind].equals("-h"))
+					{
+					System.err.println("Options: ");
+					System.err.println(" -b     use base 64 for images.");
+					return;
+					}
+				else if(args[optind].equals("-b"))
+					{
+					this.useBase64=true;
+					}
+				else if(args[optind].equals("--"))
+					{
+					optind++;
+					break;
+					}
+				else if(args[optind].startsWith("-"))
+					{
+					System.err.println("Unnown option: "+args[optind]);
+					return;
+					}
+				else
+					{
+					break;
+					}
+				++optind;
+				}
+		
+		
+		while(optind< args.length) {
+			final String s =args[optind++];
 			final Submission sub = Submission.parse(s);
 			if(!sub.getImageInfo().toBigSquareImageInfo().isValid()) continue;
 			if(sub.getUser().getName().equals("AutoModerator")) continue;

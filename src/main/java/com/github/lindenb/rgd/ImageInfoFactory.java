@@ -1,11 +1,16 @@
 package com.github.lindenb.rgd;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -42,6 +47,10 @@ private static final ImageInfo NO_IMAGE= new ImageInfo()
 		public int getHeight() {
 			return -1;
 		}
+		public String toBase64()
+			{
+			return "";
+			}
 		@Override
 		public String toString() {
 				return "[invalid image info]";
@@ -323,6 +332,41 @@ private static class DefaultImageInfo
 	public int getHeight() {
 		return height;
 	}
+	
+	@Override
+	public String toBase64() throws IOException {
+		InputStream in=null;
+		try
+			{
+			BufferedImage img=ImageIO.read(new URL(getUrl()));
+			Image scaled = img.getScaledInstance(
+					this.getWidth(),
+					this.getHeight(),		
+					BufferedImage.SCALE_SMOOTH);
+			
+			BufferedImage img2= new BufferedImage(this.getWidth(), this.getHeight(), img.getType());
+			Graphics2D g=img2.createGraphics();
+			g.drawImage(scaled, 0, 0, null);
+			g.dispose();
+			
+			ByteArrayOutputStream baos=new ByteArrayOutputStream();
+			ImageIO.write(img2, "png", baos);
+			
+			return "data:image/png;base64,"+
+				Base64.getEncoder().encodeToString(baos.toByteArray())
+				;
+			}
+		catch(Exception err)
+			{
+			LOG.warning("error: "+err);
+			return "";
+			}
+		finally
+			{
+			if(in!=null ) try { in.close();} catch(IOException err2) {}
+			}
+		}
+	
 	@Override
 	public ImageInfo toBigSquareImageInfo() {
 		if(!isValid()) return new DefaultImageInfo();
