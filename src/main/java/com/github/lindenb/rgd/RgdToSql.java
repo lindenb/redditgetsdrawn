@@ -140,6 +140,7 @@ public class RgdToSql {
 		{
 		printUser(art.getUser());
 		out.print("insert into art(id,submission,when,nsfw,author) values (");
+		LOG.info(art.toString());
 		out.print(String.join(",",
 				quote(art.getSubmission().getPostId()+"."+art.getUser().getName()),
 				quote(art.getSubmission().getPostId()),

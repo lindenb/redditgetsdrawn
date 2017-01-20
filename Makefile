@@ -15,17 +15,29 @@ all_maven_jars = $(sort ${gson.jar})
 %.sql : %.json
 	jjs src/tosql.js -- $< > $@
 
-all: dist/rgd2html.jar $(addprefix cache/,$(addsuffix .json,${POSTS}))
+all: bin/rgd2html bin/rgd2sql $(addprefix cache/,$(addsuffix .json,${POSTS}))
 
 all_json: $(addprefix cache/,$(addsuffix .json,${POSTS}))
 
+bin/rgd2html: dist/rgd2html.jar
+	mkdir -p $(dir $@)
+	echo '#!/bin/bash' > $@
+	echo 'java -cp dist/rgd2html.jar:lib/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar com.github.lindenb.rgd.RgdToHtml $$*' >> $@
+	chmod +x $@
 
-dist/rgd2html.jar : ${all_maven_jars} ./src/main/java/com/github/lindenb/rgd/RgdToHtml.java \
+bin/rgd2sql: dist/rgd2html.jar
+	mkdir -p $(dir $@)
+	echo '#!/bin/bash' > $@
+	echo 'java -cp dist/rgd2html.jar:lib/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar com.github.lindenb.rgd.RgdToSql $$*' >> $@
+	chmod +x $@
+
+dist/rgd2sql.jar : ${all_maven_jars} ./src/main/java/com/github/lindenb/rgd/RgdToHtml.java \
 				./src/main/java/com/github/lindenb/rgd/RgdToSql.java
 	mkdir -p $(dir $@)  tmp
 	javac -d tmp -cp lib/com/google/code/gson/gson/2.6.2/gson-2.6.2.jar -sourcepath src/main/java $(filter %.java,$^)
 	jar cvf $@ -C tmp .
 	rm -rf tmp
+
 	
 
 download_all_maven: ${all_maven_jars}

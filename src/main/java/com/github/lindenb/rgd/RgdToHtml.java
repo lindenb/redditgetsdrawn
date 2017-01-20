@@ -155,7 +155,15 @@ public class RgdToHtml {
 		while(optind< args.length) {
 			final String s =args[optind++];
 			
-			final List<ModFav> favs=ModFav.parse(s);
+			final List<ModFav> favs;
+			try {
+			    favs=ModFav.parse(s);
+				}
+			catch(Exception err) {
+				err.printStackTrace();
+				LOG.info("CANNOT PARSE "+s);
+				continue;
+				}
 			if(!favs.isEmpty())
 				{
 				this.modfavs.addAll(favs);
