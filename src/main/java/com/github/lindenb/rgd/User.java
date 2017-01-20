@@ -4,10 +4,17 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 
 public class User
 	{
 	private final JsonElement root;
+	
+	public User(final String name){
+		this.root = new JsonObject();
+		this.root.getAsJsonObject().addProperty("author", name);
+		}
+	
 	public User(final JsonElement root){
 		this.root = root;
 		}

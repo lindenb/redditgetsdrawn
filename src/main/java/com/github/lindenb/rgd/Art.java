@@ -10,10 +10,16 @@ public class Art extends AbstractImage
 	private static final Logger LOG=Logger.getLogger("rgd");
 	private final JsonElement root;
 	private String cacheimgur=null;
-
-	Art(final JsonElement root)  {
+	private final Submission submission;
+	Art(final JsonElement root,Submission sub)  {
 		this.root=root;
+		this.submission = sub;
 	}
+	
+	public Submission getSubmission() {
+		return submission;
+	}
+	
 	public User getUser(){
 		JsonElement o = this.root;
 		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("data")) return null;

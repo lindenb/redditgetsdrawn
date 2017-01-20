@@ -5,3 +5,6 @@ cache
 bin/com
 lib
 /bin/
+.classpath
+.project
+dist

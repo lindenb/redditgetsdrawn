@@ -6,8 +6,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -17,10 +19,11 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 public class RgdToHtml {
-	private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-dd-mm");
+	private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 	private static final Logger LOG=Logger.getLogger("RgdToHtml");
 	private List<Submission> submissions=new ArrayList<>();
 	private Map<User, Integer> user2count=new HashMap<>();
+	private final Set<ModFav> modfavs=new HashSet<>();
 	private boolean useBase64=false;
 	private Date minDate=null;
 	private Date maxDate=null;
@@ -55,8 +58,30 @@ public class RgdToHtml {
 		out.writeAttribute("height",""+img.getHeight());
 
 	}
+	private void writeFaved(XMLStreamWriter w,final Art art) throws XMLStreamException
+		{
+		boolean first=true;
+		for(final ModFav fav:this.modfavs)
+			{
+			if(!fav.hasArt(art)) continue;
+			if(first) {
+				w.writeEmptyElement("br");
+				w.writeCharacters("Faved by ");
+				first=false;
+				}
+			else
+				{
+				w.writeCharacters(", ");
+				}
+			w.writeStartElement("a");
+			w.writeAttribute("href", fav.getFavPermalink());
+			w.writeCharacters(fav.getFavedBy().getName());
+			w.writeEndElement();
+			}
+		}
 	
-	private void writeTitle(XMLStreamWriter w) throws XMLStreamException
+	
+	private void writeTitle(final XMLStreamWriter w) throws XMLStreamException
 	{
 
 		w.writeCharacters("RedditGetsDrawn");
@@ -128,6 +153,13 @@ public class RgdToHtml {
 		
 		while(optind< args.length) {
 			final String s =args[optind++];
+			
+			final List<ModFav> favs=ModFav.parse(s);
+			if(!favs.isEmpty())
+				{
+				this.modfavs.addAll(favs);
+				continue;
+				}
 			final Submission sub = Submission.parse(s);
 			
 			if(this.minDate!=null && (sub.getDate()==null || sub.getDate().before(this.minDate))) 
@@ -239,13 +271,13 @@ public class RgdToHtml {
 			{
 			w.writeStartElement("th");
 			w.writeStartElement("a");
-			w.writeAttribute("href", sub.getImagePage());
+			w.writeAttribute("href", sub.getPermalink());
 			write(w,sub.getImageInfo().toBigSquareImageInfo());
 			w.writeEndElement();
 			w.writeEmptyElement("br");
 			w.writeCharacters(" by ");		
 			sub.getUser().writeHtmlHyperlink(w);
-			w.writeEndElement();
+			w.writeEndElement();//th
 			}
 		w.writeEndElement();//tr
 		w.writeEndElement();//thread
@@ -289,6 +321,8 @@ public class RgdToHtml {
 						w.writeEmptyElement("br");
 						w.writeCharacters(" by ");
 						row.get(x).getUser().writeHtmlHyperlink(w);
+						
+						writeFaved(w,row.get(x));
 						}
 					w.writeEndElement();//td
 					}
@@ -323,7 +357,8 @@ public class RgdToHtml {
 						w.writeAttribute("href",""+ a.getImagePage());
 						write(w,a.getImageInfo().toBigSquareImageInfo());
 						w.writeEndElement();
-						w.writeEndElement();
+						writeFaved(w,a);
+						w.writeEndElement();//td
 						}
 					}
 				w.writeEndElement();//tr

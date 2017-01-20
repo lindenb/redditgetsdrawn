@@ -13,7 +13,8 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
-public class Submission  extends AbstractImage
+public class Submission 
+	extends AbstractImage
 	{
 	private static final Logger LOG=Logger.getLogger("Submission");
 	private final JsonElement root;
@@ -27,6 +28,41 @@ public class Submission  extends AbstractImage
 	public String getImagePage() {
 		return getImageUrl();
 	}
+	
+	public String getPermalink() {
+		return "https://www.reddit.com/r/redditgetsdrawn/comments/"+getPostId();
+	}
+	
+	public String getPostId() {
+		JsonElement o = this.root;
+
+		if(o==null || !o.isJsonArray()) return null;
+		if(o==null || !o.isJsonArray() ||  o.getAsJsonArray().size() <= 0 ) return null;
+		o = o.getAsJsonArray().get(0);
+
+		if(o==null || !o.isJsonObject()) return null;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("data")) return null;
+		o = o.getAsJsonObject().get("data");
+
+		if(o==null || !o.isJsonObject()) return null;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("children")) return null;
+		o = o.getAsJsonObject().get("children");
+
+		if(o==null || !o.isJsonArray()) return null;
+		if(o==null || !o.isJsonArray() ||  o.getAsJsonArray().size() <= 0 ) return null;
+		o = o.getAsJsonArray().get(0);
+
+		if(o==null || !o.isJsonObject()) return null;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("data")) return null;
+		o = o.getAsJsonObject().get("data");
+
+		if(o==null || !o.isJsonObject()) return null;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("id")) return null;
+		o = o.getAsJsonObject().get("id");
+
+		if(o==null || !o.isJsonPrimitive() || !o.getAsJsonPrimitive().isString()) return null;
+		return o.getAsJsonPrimitive().getAsString();
+		}
 	
 	public Date getDate() {
 			JsonElement o = this.root;
@@ -133,7 +169,7 @@ public class Submission  extends AbstractImage
 		if(o==null || !o.isJsonArray()) return this._arts;
 		final JsonArray array = o.getAsJsonArray();
 		for(int i=0;i< array.size();++i)  {
-			final Art a=new Art(array.get(i));
+			final Art a=new Art(array.get(i),this);
 			this._arts.add(a);
 			}
 		return this._arts;

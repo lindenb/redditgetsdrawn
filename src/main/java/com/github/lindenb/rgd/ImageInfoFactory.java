@@ -257,7 +257,7 @@ public  String fixImageUrl(final String s) {
 		{
 		if(isImageUrl(u)) return u;
 		}
-	for(String host : new String[]{"imgur.com","deviantart.com","tumblr.com"})
+	for(String host : new String[]{"imgur.com","deviantart.com","tumblr.com","instagram.com"})
 	for(final String url : tokens)
 		{
 		if(!(url.startsWith("http://") || url.startsWith("https://")))
@@ -266,6 +266,7 @@ public  String fixImageUrl(final String s) {
 			}
 		if(host.contains("deviantart") && !url.contains("/art/")) continue;
 		if(host.contains("tumblr") && !url.contains("/post/")) continue;
+		if(host.contains("instagram.com") && !url.contains("/p/")) continue;
 		if(url.contains(host)) return url;
 		}
 	
