@@ -62,4 +62,14 @@ public class Art extends AbstractImage
 	public String toString() {
 		return "art by" +getUser()+ " date:"+getDate() +" image:"+this.getImageInfo();
 		}
+	
+	@Override
+	public  String getImagePage() {
+		final String url = this.getImageUrl();
+		if(url==null ) return null;
+		if(!url.contains("imgur.com")) return url;
+		final int dot = url.lastIndexOf('.');
+		return url.substring(0,dot);
+		}
+
 	}

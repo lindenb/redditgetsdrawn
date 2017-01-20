@@ -8,12 +8,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 public class RgdToHtml {
+	private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-dd-mm");
 	private static final Logger LOG=Logger.getLogger("RgdToHtml");
 	private List<Submission> submissions=new ArrayList<>();
 	private Map<User, Integer> user2count=new HashMap<>();
@@ -21,9 +25,18 @@ public class RgdToHtml {
 	private Date minDate=null;
 	private Date maxDate=null;
 	private boolean pack=false;
+	private final Predicate<User> acceptUser= new Predicate<User>() {
+		@Override
+		public boolean test(final User t) {
+			return t!=null && 
+				!(t.getName().equals("AutoModerator") || t.getName().equals("[deleted]"));
+		}
+	};
 	
 	private void write(XMLStreamWriter out,ImageInfo img)throws Exception {
 		out.writeEmptyElement("img");
+		out.writeAttribute("title",img.getUrl()+" "+img.getWidth()+"x"+img.getHeight());
+
 		String url= img.getUrl();
 		if(this.useBase64)
 			{
@@ -43,8 +56,30 @@ public class RgdToHtml {
 
 	}
 	
+	private void writeTitle(XMLStreamWriter w) throws XMLStreamException
+	{
+
+		w.writeCharacters("RedditGetsDrawn");
+		if(this.minDate!=null && this.maxDate!=null) {
+			w.writeEmptyElement("br");
+			w.writeCharacters("Between " + simpleDateFormat.format(this.minDate)+" and "+simpleDateFormat.format(this.maxDate));
+			}
+		else if(this.minDate!=null)
+			{
+			w.writeEmptyElement("br");
+			w.writeCharacters("Between " + simpleDateFormat.format(this.minDate)+" and "+simpleDateFormat.format(new Date()));
+			}
+		else if(this.maxDate!=null)
+			{
+			w.writeEmptyElement("br");
+			w.writeCharacters("Before " + simpleDateFormat.format(this.maxDate));
+			}
+	}
+	
+	
+	
 	private void run(final String[] args) throws Exception {
-			final SimpleDateFormat sm = new SimpleDateFormat("yyyy-dd-mm");
+			
 			int optind=0;
 			while(optind<args.length)
 				{
@@ -59,11 +94,11 @@ public class RgdToHtml {
 					}
 				else if(args[optind].equals("-m") && optind+1 < args.length)
 					{
-					this.minDate = sm.parse( args[++optind]);
+					this.minDate = simpleDateFormat.parse( args[++optind]);
 					}
 				else if(args[optind].equals("-M") && optind+1 < args.length)
 					{
-					this.maxDate = sm.parse( args[++optind]);
+					this.maxDate = simpleDateFormat.parse( args[++optind]);
 					}
 				else if(args[optind].equals("-b"))
 					{
@@ -110,14 +145,13 @@ public class RgdToHtml {
 			if(!sub.getImageInfo().toBigSquareImageInfo().isValid()) continue;
 			if(sub.getUser().getName().equals("AutoModerator")) continue;
 			if(sub.getUser().getName().equals("[deleted]")) continue;
-			List<Art> arts = new ArrayList<>(sub.getArts());
+			final List<Art> arts = new ArrayList<>(sub.getArts());
 			int i=0;
 			LOG.info("scanning art N="+arts.size()+" sub="+this.submissions.size());
 			while(i<arts.size()) {
 				final Art art = arts.get(i);
-				User u = art.getUser();
-				if( u.getName().equals("AutoModerator") ||
-					u.getName().equals("[deleted]") ||
+				final User u = art.getUser();
+				if( !acceptUser.test(u) ||
 					!art.getImageInfo().toBigSquareImageInfo().isValid())
 					{
 					arts.remove(i);
@@ -149,7 +183,7 @@ public class RgdToHtml {
 			});
 		
 		LOG.info("sort users");
-		List<User> users = new ArrayList<>(this.user2count.keySet());
+		final List<User> users = new ArrayList<>(this.user2count.keySet());
 		LOG.info("users="+users);
 		Collections.sort(users,new Comparator<User>() {
 			@Override
@@ -159,28 +193,40 @@ public class RgdToHtml {
 			});
 		XMLOutputFactory xof=XMLOutputFactory.newFactory();
 		XMLStreamWriter w=xof.createXMLStreamWriter(System.out, "UTF-8");
+		
+		
+
+		
+		
+		
 		w.writeStartElement("html");
 		w.writeStartElement("body");
+		w.writeStartElement("head");
+		
+		w.writeStartElement("title");
+		writeTitle(w);
+		w.writeEndElement();
+		w.writeStartElement("style");
+		w.writeCharacters(
+		"table { border-collapse: collapse;}"+
+		"table , th, td {border: 1px solid #ffdddd; }"+
+		"tr:nth-child(even) {background-color: #f2f2f2;}"+
+		"tr:nth-child(odd) {background-color: #e0e0e0;}"+
+		"th, td , caption { text-align: center;vertical-align:middle;}"
+		);
+		w.writeEndElement();//style
+		w.writeEndElement();//head
+		
 		w.writeStartElement("table");
 		
-		w.writeStartElement("thead");
-		
 		w.writeStartElement("caption");
-		w.writeCharacters("RedditGetsDrawn");
-		if(this.minDate!=null && this.maxDate!=null) {
-			w.writeEmptyElement("br");
-			w.writeCharacters("Between " + sm.format(this.minDate)+" and "+sm.format(this.maxDate));
-			}
-		else if(this.minDate!=null)
-			{
-			w.writeEmptyElement("br");
-			w.writeCharacters("Between " + sm.format(this.minDate)+" and "+sm.format(new Date()));
-			}
-		else if(this.maxDate!=null)
-			{
-			w.writeEmptyElement("br");
-			w.writeCharacters("Before " + sm.format(this.maxDate));
-			}
+		writeTitle(w);
+		w.writeEndElement();//caption
+		
+		w.writeStartElement("thead");
+		w.writeAttribute("style",  "min-height:500px;");
+		
+		
 		
 		w.writeStartElement("tr");
 		
@@ -191,15 +237,14 @@ public class RgdToHtml {
 		
 		for(final Submission sub: this.submissions)
 			{
-			User user=sub.getUser();
 			w.writeStartElement("th");
-			write(w,sub.getImageInfo().toBigSquareImageInfo());
-			w.writeEmptyElement("br");
-			w.writeCharacters(" by ");			
 			w.writeStartElement("a");
-			w.writeAttribute("href", user.getUrlStr());
-			w.writeCharacters(user.getName());
+			w.writeAttribute("href", sub.getImagePage());
+			write(w,sub.getImageInfo().toBigSquareImageInfo());
 			w.writeEndElement();
+			w.writeEmptyElement("br");
+			w.writeCharacters(" by ");		
+			sub.getUser().writeHtmlHyperlink(w);
 			w.writeEndElement();
 			}
 		w.writeEndElement();//tr
@@ -216,7 +261,10 @@ public class RgdToHtml {
 				boolean foundOne=false;
 				for(final Submission sub: this.submissions)
 					{
-					List<Art> arts=sub.getArts();
+					List<Art> arts=sub.getArts().stream().
+							filter(A->acceptUser.test(A.getUser())).
+							filter(A->A.getImageInfo().isValid()).
+							collect(Collectors.toList());
 					if(y>=arts.size())
 						{
 						row.add(null);
@@ -235,9 +283,12 @@ public class RgdToHtml {
 					if(row.get(x)!=null) {
 						w.writeStartElement("a");
 						w.writeAttribute("title", row.get(x).getImagePage());
-						w.writeAttribute("href",""+ row.get(x).getImagePage());
+						w.writeAttribute("href",""+ row.get(x).getImageUrl());
 						write(w,row.get(x).getImageInfo().toBigSquareImageInfo());
 						w.writeEndElement();
+						w.writeEmptyElement("br");
+						w.writeCharacters(" by ");
+						row.get(x).getUser().writeHtmlHyperlink(w);
 						}
 					w.writeEndElement();//td
 					}
@@ -252,9 +303,7 @@ public class RgdToHtml {
 				{
 				w.writeStartElement("tr");
 				w.writeStartElement("th");
-				w.writeStartElement("a");
-				w.writeCharacters(user.getName());
-				w.writeEndElement();
+				user.writeHtmlHyperlink(w);
 				w.writeEndElement();//th
 				for(final Submission sub: this.submissions)
 					{
@@ -283,6 +332,14 @@ public class RgdToHtml {
 		w.writeEndElement();//tbody
 		
 		w.writeEndElement();//table
+		w.writeEmptyElement("hr");
+		w.writeCharacters("By ");
+		w.writeStartElement("a");
+		w.writeAttribute("href", "https://www.reddit.com/user/yokofakun");
+		w.writeCharacters("yokofakun");
+		w.writeEndElement();
+		w.writeCharacters(". Date:" + this.simpleDateFormat.format(new Date())+".");
+		
 		w.writeEndElement();//body
 		w.writeEndElement();//html
 		w.flush();

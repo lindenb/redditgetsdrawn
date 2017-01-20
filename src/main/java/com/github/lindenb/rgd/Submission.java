@@ -1,6 +1,5 @@
 package com.github.lindenb.rgd;
 
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,6 +22,11 @@ public class Submission  extends AbstractImage
 		this.root = root;
 		}
 	
+	
+	@Override
+	public String getImagePage() {
+		return getImageUrl();
+	}
 	
 	public Date getDate() {
 			JsonElement o = this.root;

@@ -20,13 +20,7 @@ public final  ImageInfo getImageInfo(){
 	LOG.info("factory returned "+this.imageInfo+" from "+getImageUrl());
 	return this.imageInfo;
 	}
-public final  String getImagePage() {
-	final String url = this.getImageUrl();
-	if(url==null ) return null;
-	if(!url.contains("imgur.com")) return url;
-	final int dot = url.lastIndexOf('.');
-	return url.substring(0,dot);
-	}
+public abstract  String getImagePage();
 
 
 

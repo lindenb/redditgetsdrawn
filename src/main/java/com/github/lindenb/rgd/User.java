@@ -1,5 +1,8 @@
 package com.github.lindenb.rgd;
 
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamWriter;
+
 import com.google.gson.JsonElement;
 
 public class User
@@ -37,4 +40,13 @@ public class User
 	public String toString() {
 		return "User:"+getName();
 		}
+	
+	public void writeHtmlHyperlink(final XMLStreamWriter w) throws XMLStreamException{
+		w.writeStartElement("a");
+		w.writeAttribute("href", this.getUrlStr());
+		w.writeAttribute("title", getName());
+		w.writeCharacters(this.getName());
+		w.writeEndElement();
+		}
+	
 	}
