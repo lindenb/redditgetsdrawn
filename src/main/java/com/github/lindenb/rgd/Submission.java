@@ -24,6 +24,8 @@ public class Submission
 		}
 	
 	
+	
+	
 	@Override
 	public String getImagePage() {
 		return getImageUrl();
@@ -63,6 +65,39 @@ public class Submission
 		if(o==null || !o.isJsonPrimitive() || !o.getAsJsonPrimitive().isString()) return null;
 		return o.getAsJsonPrimitive().getAsString();
 		}
+	
+	public boolean isNsfw() {
+		JsonElement o = this.root;
+
+		if(o==null || !o.isJsonArray()) return false;
+		if(o==null || !o.isJsonArray() ||  o.getAsJsonArray().size() <= 0 ) return false;
+		o = o.getAsJsonArray().get(0);
+
+		if(o==null || !o.isJsonObject()) return false;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("data")) return false;
+		o = o.getAsJsonObject().get("data");
+
+		if(o==null || !o.isJsonObject()) return false;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("children")) return false;
+		o = o.getAsJsonObject().get("children");
+
+		if(o==null || !o.isJsonArray()) return false;
+		if(o==null || !o.isJsonArray() ||  o.getAsJsonArray().size() <= 0 ) return false;
+		o = o.getAsJsonArray().get(0);
+
+		if(o==null || !o.isJsonObject()) return false;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("data")) return false;
+		o = o.getAsJsonObject().get("data");
+
+		if(o==null || !o.isJsonObject()) return false;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("over_18")) return false;
+		o = o.getAsJsonObject().get("over_18");
+
+		if(o==null || !o.isJsonPrimitive() || !o.getAsJsonPrimitive().isBoolean()) return false;
+		return o.getAsJsonPrimitive().getAsBoolean();
+		}
+
+	
 	
 	public Date getDate() {
 			JsonElement o = this.root;

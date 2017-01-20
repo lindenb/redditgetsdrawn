@@ -28,6 +28,7 @@ public class RgdToHtml {
 	private Date minDate=null;
 	private Date maxDate=null;
 	private boolean pack=false;
+	
 	private final Predicate<User> acceptUser= new Predicate<User>() {
 		@Override
 		public boolean test(final User t) {
@@ -277,6 +278,10 @@ public class RgdToHtml {
 			w.writeEmptyElement("br");
 			w.writeCharacters(" by ");		
 			sub.getUser().writeHtmlHyperlink(w);
+			if(sub.isNsfw())
+				{
+				w.writeCharacters(" [NSFW]");
+				}
 			w.writeEndElement();//th
 			}
 		w.writeEndElement();//tr
