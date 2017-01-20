@@ -20,6 +20,21 @@ public class Art extends AbstractImage
 		return submission;
 	}
 	
+	public String getPermalink() {
+		return getSubmission().getPermalink()+"/x/"+getId();
+	}
+	
+	public String getId() {
+		JsonElement o = this.root;
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("data")) return null;
+		o = o.getAsJsonObject().get("data");
+		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("created_utc")) return null;
+		o = o.getAsJsonObject().get("id");
+
+		if(o==null || !o.isJsonPrimitive() || !o.getAsJsonPrimitive().isString()) return null;
+		return o.getAsJsonPrimitive().getAsString(); /* 1471492095 */
+	}
+	
 	public User getUser(){
 		JsonElement o = this.root;
 		if(o==null || !o.isJsonObject() || !o.getAsJsonObject().has("data")) return null;

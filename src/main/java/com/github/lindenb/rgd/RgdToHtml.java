@@ -320,7 +320,7 @@ public class RgdToHtml {
 					if(row.get(x)!=null) {
 						w.writeStartElement("a");
 						w.writeAttribute("title", row.get(x).getImagePage());
-						w.writeAttribute("href",""+ row.get(x).getImageUrl());
+						w.writeAttribute("href",row.get(x).getPermalink());
 						write(w,row.get(x).getImageInfo().toBigSquareImageInfo());
 						w.writeEndElement();
 						w.writeEmptyElement("br");
@@ -359,7 +359,7 @@ public class RgdToHtml {
 						{
 						w.writeStartElement("td");
 						w.writeStartElement("a");
-						w.writeAttribute("href",""+ a.getImagePage());
+						w.writeAttribute("href",a.getPermalink());
 						write(w,a.getImageInfo().toBigSquareImageInfo());
 						w.writeEndElement();
 						writeFaved(w,a);

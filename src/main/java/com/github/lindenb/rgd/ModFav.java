@@ -33,8 +33,7 @@ public class ModFav {
 	{
 		if(!this.getSubmitter().equals(sub.getUser())) return false;
 		final String postId="/comments/"+sub.getPostId();
-		if(!(getPermalink().contains(postId+"/") || getPermalink().endsWith(postId)))
-			return false;
+		if(!(getPermalink().contains(postId+"/") || getPermalink().endsWith(postId))) return false;
 		return true;
 	}
 
@@ -44,7 +43,37 @@ public class ModFav {
 		if(!this.getArtist().equals(art.getUser())) return false;
 		return true;
 	}
+
 	
+	public String getSubmissionId(){
+		String s=getPermalink();
+		final String comments="/comments/";
+		int i=s.indexOf(comments);
+		if(i==-1) {
+			LOG.info("Cannot find "+comments+" in "+getPermalink()+" "+toString());
+			return null;
+		}
+		s=s.substring(i+comments.length());
+		i=s.indexOf("/");
+		if(i==-1) {
+			LOG.info("Cannot find "+comments+" in "+getPermalink()+" "+toString());
+			return null;
+		}
+		return s.substring(0,i);
+		}
+	/*
+	public String getArtId(){
+		String s=getPermalink();
+		final String comments="/comments/";
+		int i=s.indexOf(comments);
+		if(i==-1) throw new IllegalArgumentException("Cannot find "+comments+" in "+getPermalink());
+		i=s.indexOf('/',i+comments.length());//after postid
+		if(i==-1) throw new IllegalArgumentException("Cannot find n2 in "+getPermalink());
+		i=s.indexOf('/',i+1);//after title
+		if(i==-1) throw new IllegalArgumentException("Cannot find n3 in "+getPermalink());
+		int j=s.indexOf('/',i+1);
+		return j==-1?s.substring(i+1).trim():s.substring(i+1, j).trim();
+		}*/
 	
 	public String getPostId() {
 		return postId;
